@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include "dsk6713/include/dsk6713.h"
+#include "dsk6713/include/dsk6713_dip.h"
+#include "dsk6713/include/dsk6713_led.h"
+
+/*
+ * hello.c
+ */
+int main(void)
+{
+	unsigned int i = 0;
+
+	DSK6713_init();
+	DSK6713_LED_init();
+
+	printf("Hello World!\n");
+	
+	printf("Wersja systemu: %d\n", DSK6713_getVersion());
+
+	while(1)
+	{
+		for(i = 0; i < 4; i++)
+		{
+			if(DSK6713_DIP_get(i) != 0) DSK6713_LED_on(i);
+			else DSK6713_LED_off(i);
+		}
+
+		DSK6713_waitusec(1000000);
+	}
+}

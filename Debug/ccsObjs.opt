@@ -1,0 +1,1 @@
+"./Vectors_poll.obj" "./PDSP_lab1.obj" "./C6713dskinit.obj" "../C6713.cmd" "../dsk6713/lib/dsk6713bsl.lib" "../CSL/lib/csl6713.lib" -l"libc.a" 
